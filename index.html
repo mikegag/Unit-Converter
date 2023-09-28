@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href = "index.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <main id="container">
+            <div id="input-section">
+                <h2 id="main-title"> Metric/Imperial Unit Conversion </h2>
+                <input type="text" id="unit-input">
+                <button id="cvt-btn"> Convert</button>
+            </div>
+            <div class="cvt-style" id="convert-section">
+                <div id="length-cvt">
+                    <h4 class="sub-header" > Length (Meter/feet)</h4>
+                    <p class="sub-info" id="length-dsc"></p>
+                </div>
+                <div id="volume-cvt">
+                    <h4 class="sub-header"> Volume (Litres/Gallons)</h4>
+                    <p class="sub-info" id="volume-dsc"></p>
+                </div>
+                <div id="mass-cvt">
+                    <h4 class="sub-header"> Mass (Kilograms/Pounds)</h4>
+                    <p class="sub-info" id="mass-dsc"></p>
+                </div>
+            </div>
+        </main>
+        <script src="index.js"></script>
+    </body>
+</html>

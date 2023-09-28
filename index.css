@@ -1,0 +1,102 @@
+body {  /* page background */
+    margin: 0;
+    background: #1F2937;
+}
+
+#container, #input-section, #convert-section { /* entire converter, with inner top and bottom sections */
+    display: flex;
+    flex-direction: column;
+    width: 41vw;
+    font-family: 'Inter', sans-serif;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#container { /* entire converter */
+    height: 95vh;
+    margin-top: 2vh;
+}
+
+#input-section { /* inner top section of converter containing title, input, and button */
+    background:#6943FF;
+    height: 35vh;
+    color: white;
+}
+
+#main-title { /* main title inside inner top section */
+    margin-bottom: 30px;
+    font-size: 1.8vw;
+}
+
+#unit-input { /* value input area inside inner top section */
+    height: 9.3vh;
+    width: 6.7vw;
+    background: #6943FF;
+    border-radius: 5px;
+    border: 2px solid #B295FF;
+    margin-bottom: 20px;
+    font-size: 3.9vw;
+    color: white;
+    font-weight: 800;
+    text-align: center;
+    transform: scaleX(1.16);
+    padding: 2px 0px 2px 0px;
+}
+
+#cvt-btn { /* convert button inside inner top section */
+    color: #3D3D3D;
+    font-size: 1.05vw;
+    font-weight: 500;
+    padding: 8px 18px 8px 18px;
+    border: 2px solid white;
+    background: white;
+    border-radius: 5px;
+    margin-bottom: 27px;
+    width: 8.3vw;
+}
+
+#convert-section { /* inner bottom section of converter containing calculations */
+    height: 60vh;
+    background: #F4F4F4;
+}
+
+#length-cvt, #volume-cvt, #mass-cvt { /* conversion calculation sections titled "length", "volume" & "mass" */
+    height: 14vh;
+    width: 37vw;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #5A537B;
+}
+
+#length-cvt { /* length conversion section */
+    margin-top: 1.8vh;
+    margin-bottom: 3.3vh;
+}
+
+#mass-cvt { /* mass conversion section */
+    margin-top: 3.3vh;
+    margin-bottom: 1.8vh;
+}
+
+#length-dsc, #mass-dsc, #volume-dsc { /* paragraph calculations in each of the three conversion sections*/
+    color: #353535;
+}
+
+.sub-header { /* class applying to each title in the conversion section labelled "length", "volume" & "mass"*/
+   margin-top: 65px;
+   margin-bottom: 6px;
+   font-size: 1.4vw;
+   font-weight: 500;
+}
+
+.sub-info { /* class applying to each paragraph calculation in the three conversion sections*/
+    margin-bottom: 65px;
+    margin-top: 6px;
+    font-size: 1vw;
+}
