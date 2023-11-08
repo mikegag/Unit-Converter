@@ -1,102 +1,119 @@
-body {  /* page background */
+body { 
     margin: 0;
     background: #1F2937;
 }
 
-#container, #input-section, #convert-section { /* entire converter, with inner top and bottom sections */
+.container,
+.input-section,
+.unit-conversion 
+{
     display: flex;
     flex-direction: column;
-    width: 41vw;
-    font-family: 'Inter', sans-serif;
+    font-family: Inter, sans-serif;
     justify-content: center;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
 }
 
-#container { /* entire converter */
-    height: 95vh;
-    margin-top: 2vh;
-}
-
-#input-section { /* inner top section of converter containing title, input, and button */
-    background:#6943FF;
-    height: 35vh;
-    color: white;
-}
-
-#main-title { /* main title inside inner top section */
-    margin-bottom: 30px;
-    font-size: 1.8vw;
-}
-
-#unit-input { /* value input area inside inner top section */
-    height: 9.3vh;
-    width: 6.7vw;
-    background: #6943FF;
+.unit-input,
+.convert-btn,
+.alert
+{
     border-radius: 5px;
-    border: 2px solid #B295FF;
-    margin-bottom: 20px;
-    font-size: 3.9vw;
-    color: white;
-    font-weight: 800;
+    font-weight: 700;
     text-align: center;
-    transform: scaleX(1.16);
-    padding: 2px 0px 2px 0px;
 }
 
-#cvt-btn { /* convert button inside inner top section */
+.container { 
+    margin: 1.5em auto; 
+    text-align: center;
+    width: 40%;
+    min-width: 400px;
+}
+
+
+/* ------ input section ------ */
+.input-section {
+    background:#6943FF;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.main-title { 
+    margin: 1em auto;
+    font-size: 1.4rem;
+}
+
+.unit-input {
+    background: #6943FF;
+    border: 2px solid #B295FF;
+    margin: 0 auto 1em auto;
+    font-size: 1.4rem;
+    color: white;
+    padding: 0.4em 0.2em;
+    width: 16%;
+}
+
+.convert-btn { 
     color: #3D3D3D;
-    font-size: 1.05vw;
-    font-weight: 500;
-    padding: 8px 18px 8px 18px;
+    font-size: 0.8em;
+    padding: 0.5em 1em;
     border: 2px solid white;
     background: white;
-    border-radius: 5px;
-    margin-bottom: 27px;
-    width: 8.3vw;
+    margin: 0 auto 2em auto;
 }
 
-#convert-section { /* inner bottom section of converter containing calculations */
-    height: 60vh;
+.convert-btn:hover {
+    box-shadow: 1px 1px 10px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    background: rgb(244, 244, 244);
+}
+
+
+/* ------ convert section ------ */
+#convert-section { 
     background: #F4F4F4;
+    width: 100%;
 }
 
-#length-cvt, #volume-cvt, #mass-cvt { /* conversion calculation sections titled "length", "volume" & "mass" */
-    height: 14vh;
-    width: 37vw;
+/* applied to each conversion section "length", "volume" & "mass" */
+.unit-conversion { 
+    margin: 2em;
     background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px 0.5px rgba(0, 0, 0, 0.2);
+}
+
+.sub-header { 
+    margin: auto auto 0.5em auto;
+    font-size: 1rem;
+    font-weight: 500;
     color: #5A537B;
 }
 
-#length-cvt { /* length conversion section */
-    margin-top: 1.8vh;
-    margin-bottom: 3.3vh;
-}
-
-#mass-cvt { /* mass conversion section */
-    margin-top: 3.3vh;
-    margin-bottom: 1.8vh;
-}
-
-#length-dsc, #mass-dsc, #volume-dsc { /* paragraph calculations in each of the three conversion sections*/
+.sub-info { 
+    margin:  0.5em auto auto auto;
+    font-size: 0.85rem;
     color: #353535;
+    cursor: pointer;
 }
 
-.sub-header { /* class applying to each title in the conversion section labelled "length", "volume" & "mass"*/
-   margin-top: 65px;
-   margin-bottom: 6px;
-   font-size: 1.4vw;
-   font-weight: 500;
+/* alert message and toggle class to turn it on/off */
+.alert
+{
+    position: absolute;
+    top: 2.5%;
+    left: 31.5%;
+    width: 35%;
+    padding: 0.5em 1em;
+    color: white;
+    font-size: 0.8rem;
+    background: #1F2937;
+    line-height: 2em;
+    box-shadow: 1px 1px 10px 3px rgba(255, 255, 255, 0.2);
 }
 
-.sub-info { /* class applying to each paragraph calculation in the three conversion sections*/
-    margin-bottom: 65px;
-    margin-top: 6px;
-    font-size: 1vw;
+.none{
+    opacity: 0;
 }

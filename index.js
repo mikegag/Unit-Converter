@@ -1,39 +1,66 @@
-const meterFeetRatio = 3.281  //ratio to convert between feet and meters
-const litreGallonRatio = 3.785  //ratio to convert between litres and gallons
-const kiloPoundRatio = 2.205  //ratio to convert between kilograms and pounds
-const lengthDsc = document.getElementById("length-dsc")  //access to calculations text area for "Length(meter/feet)"
-const volumeDsc = document.getElementById("volume-dsc") //access to calculations text area for "volume(litres/gallons)"
-const massDsc = document.getElementById("mass-dsc") //access to calculations text area for "mass(kilograms/pounds)"
-const fieldInput = document.getElementById("unit-input") //access to value input area above "convert" button
-const btnInput = document.getElementById("cvt-btn")  //access to "convert" button below value input area
-btnInput.addEventListener("click", convert) // listens for "convert" button clicks
+const input = document.getElementById("unit-input") //access to user input value
+const unitRatioIDs = ["length-description", "volume-description", "mass-description"] //stores IDs of each unit conversion section
 
-function convert() //triggered by convert button, formats calculations in each of the three conversion sections
+//listens for body clicks and sends current element ID to each function
+document.body.addEventListener("click", (e) => {
+    unitConversion(e.target.id)
+    keyboardCopier(e.target.id)
+})
+ 
+//updates each unit section with related conversion calculations
+function unitConversion(id) 
 {
-   lengthDsc.innerHTML = ` ${fieldInput.value} meters = ${meterToFeet(fieldInput.value)} feet | 
-                            ${fieldInput.value} feet = ${FeetToMeter(fieldInput.value)} meters  `
-   
-   volumeDsc.innerHTML = ` ${fieldInput.value} litres = ${litreToGallon(fieldInput.value)} gallons | 
-                            ${fieldInput.value} gallons = ${GallonTolitre(fieldInput.value)} litres  `
-   
-   massDsc.innerHTML = ` ${fieldInput.value} kilos = ${kiloToPound(fieldInput.value)} pounds | 
-                            ${fieldInput.value} pounds = ${PoundToKilo(fieldInput.value)} kilos  `
+    if(id === document.getElementById("convert-btn").id) {
+        //prevents user from entering NaN
+        if(input.value * 0 === 0) { 
+            //unit ratio conversions
+            const feet = input.value * 3.281
+            const meter = input.value / 3.281
+            const gallon = input.value * 0.264
+            const liter = input.value / 0.264
+            const pound = input.value * 2.204
+            const kilo = input.value / 2.204
+                
+            document.getElementById(unitRatioIDs[0]).innerHTML = 
+                ` ${input.value} meters = ${feet.toFixed(3)} feet | ${input.value} feet = ${meter.toFixed(3)} meters  `
+            
+            document.getElementById(unitRatioIDs[1]).innerHTML = 
+                ` ${input.value} litres = ${gallon.toFixed(3)} gallons | ${input.value} gallons = ${liter.toFixed(3)} litres `
+            
+            document.getElementById(unitRatioIDs[2]).innerHTML = 
+                ` ${input.value} kilos = ${pound.toFixed(3)} pounds | ${input.value} pounds = ${kilo.toFixed(3)} kilos  `  
+        }
+    }   
 }
 
-function meterToFeet(input) //converts input from meters to feet, rounded to three decimals
-    { return (input * meterFeetRatio).toFixed(3) }
+//copies selected conversion calculations to keyboard
+function keyboardCopier(id) 
+{
+    unitRatioIDs.forEach(currentID => {
+        if(id === currentID) {
+            const currentConversion = document.getElementById(currentID)
+            navigator['clipboard'].writeText(currentConversion.textContent)
+            
+            //checks if alert message structure exists
+            if(!document.getElementById("alert")) { 
+                document.getElementById("convert-section").innerHTML+= 
+                    `<div class ="alert" id ="alert"> COPIED CONVERSION: </br> 
+                        <span id ="alert-conversion"> ${currentConversion.textContent} </span> </div>`
 
-function FeetToMeter(input) //converts input from feet to meters, rounded to three decimals
-    { return (input / meterFeetRatio).toFixed(3) }
+                setTimeout(()=>{
+                    document.getElementById("alert").classList.toggle("none")
+                }, 2700)
+            }
+            //if alert message structure exists, its conversion is replaced with new selection
+            else {
+                document.getElementById("alert").classList.toggle("none")
+                document.getElementById("alert-conversion").textContent = currentConversion.textContent
+                
+                setTimeout(()=>{
+                    document.getElementById("alert").classList.toggle("none")
+                }, 2700)
+            }
+        }
+    })
+}
 
-function litreToGallon(input) //converts input from litres to gallons, rounded to three decimals
-    { return (input / litreGallonRatio).toFixed(3) }
-
-function GallonTolitre(input) //converts input from gallons to litre, rounded to three decimals
-    { return (input * litreGallonRatio).toFixed(3) }
-
-function kiloToPound(input) //converts input from kilograms to pounds, rounded to three decimals
-    { return (input * kiloPoundRatio).toFixed(3) }
-
-function PoundToKilo(input) //converts input from pounds to kilograms, rounded to three decimals
-    { return (input / kiloPoundRatio).toFixed(3) }
