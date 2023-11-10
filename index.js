@@ -22,13 +22,13 @@ function unitConversion(id)
             const kilo = input.value / 2.204
                 
             document.getElementById(unitRatioIDs[0]).innerHTML = 
-                ` ${input.value} meters = ${feet.toFixed(3)} feet | ${input.value} feet = ${meter.toFixed(3)} meters  `
+            ` ${input.value} meters = ${feet.toFixed(3)} feet | ${input.value} feet = ${meter.toFixed(3)} meters  `
             
             document.getElementById(unitRatioIDs[1]).innerHTML = 
-                ` ${input.value} litres = ${gallon.toFixed(3)} gallons | ${input.value} gallons = ${liter.toFixed(3)} litres `
+            ` ${input.value} litres = ${gallon.toFixed(3)} gallons | ${input.value} gallons = ${liter.toFixed(3)} litres `
             
             document.getElementById(unitRatioIDs[2]).innerHTML = 
-                ` ${input.value} kilos = ${pound.toFixed(3)} pounds | ${input.value} pounds = ${kilo.toFixed(3)} kilos  `  
+            ` ${input.value} kilos = ${pound.toFixed(3)} pounds | ${input.value} pounds = ${kilo.toFixed(3)} kilos  `  
         }
     }   
 }
@@ -47,18 +47,14 @@ function keyboardCopier(id)
                     `<div class ="alert" id ="alert"> COPIED CONVERSION: </br> 
                         <span id ="alert-conversion"> ${currentConversion.textContent} </span> </div>`
 
-                setTimeout(()=>{
-                    document.getElementById("alert").classList.toggle("none")
-                }, 2700)
+                setTimeout(()=>{document.getElementById("alert").classList.toggle("none")}, 2700)
             }
             //if alert message structure exists, its conversion is replaced with new selection
             else {
                 document.getElementById("alert").classList.toggle("none")
                 document.getElementById("alert-conversion").textContent = currentConversion.textContent
                 
-                setTimeout(()=>{
-                    document.getElementById("alert").classList.toggle("none")
-                }, 2700)
+                setTimeout(()=>{document.getElementById("alert").classList.toggle("none")}, 2700)
             }
         }
     })

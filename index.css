@@ -117,3 +117,11 @@ body {
 .none{
     opacity: 0;
 }
+
+@media (max-width: 650px)
+{
+    .container {
+        width: 90%;
+        margin: 3em auto;
+    }
+}
